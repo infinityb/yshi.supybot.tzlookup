@@ -55,8 +55,7 @@ class TZLookup(callbacks.Plugin):
         tz = pytz.timezone(tzname)
         curtime = pytz.utc.localize(datetime.datetime.utcnow())
         fmttime = curtime.astimezone(tz).strftime('%Y-%m-%d %H:%M:%S %Z%z')
-        # import pdb; pdb.set_trace()
-        irc.reply("{0.nick}: {1!s}".format(msg, fmttime))
+        irc.reply(fmttime)
 
     tz = wrap(tz, ['text'])
 
